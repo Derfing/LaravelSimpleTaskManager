@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Table;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +17,14 @@ class TaskFactory extends Factory
      */
     public function definition(): array
     {
+        $tableId = Table::all()->pluck('id')->random();
         return [
+            'table_id' => $tableId,
             'name' => fake('ru_RU')->jobTitle(),
             'description' => fake()->text(256),
             'body' => fake()->text(256),
+            'created_at' => fake()->dateTimeThisMonth(),
+            'updated_at' => fake()->dateTimeThisMonth(),
             'deadline' => fake()->dateTimeThisMonth(),
             'completed' => fake()->boolean(),
         ];

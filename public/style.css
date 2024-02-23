@@ -1,0 +1,10 @@
+body {
+    /* background-color: rgb(40, 40, 40); */
+}
+
+.task-wrap {
+    border: 10px solid none;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 10px 5px 5px black;
+}

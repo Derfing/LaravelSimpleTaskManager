@@ -6,7 +6,7 @@ class TestController extends Controller
 {
     public function get()
     {
-        echo 'get';
+        return view('test_view');
     }
 
     public function post()
