@@ -1,9 +1,3 @@
-@extends('templates.baseTemplate')
-
-@section('title', 'CreateTable')
-
-@section('body')
-    <div>
-        <livewire:read.user-component userId="{{ $userId }}">
-    </div>
-@endsection
+<div>
+    <livewire:create.table-component userId="{{ $userId }}">
+</div>
