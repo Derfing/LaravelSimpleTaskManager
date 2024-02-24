@@ -1,10 +1,27 @@
 body {
-    /* background-color: rgb(40, 40, 40); */
+    background-color: #222222;
+    color: white;
+    text-align: center;
 }
 
-.task-wrap {
+#upper-card {
     border: 10px solid none;
-    border-radius: 15px;
-    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.bg-accent-first {
+    background-color: #007bff;
+    color: white;
+}
+
+.bg-accent-second {
+    background-color: #28a745;
+    color: white;
+}
+
+.home-card-wrap {
+    border: 10px solid none;
+    border-radius: 10px;
     box-shadow: 10px 5px 5px black;
 }
