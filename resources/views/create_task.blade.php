@@ -4,6 +4,6 @@
 
 @section('body')
     <div>
-        <livewire:create.task-component userId="{{ $userId }}">
+        <livewire:create.task-component>
     </div>
 @endsection

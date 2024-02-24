@@ -4,6 +4,6 @@
 
 @section('body')
     <div>
-        <livewire:create.table-component userId="{{ $userId }}">
+        <livewire:create.table-component>
     </div>
 @endsection
