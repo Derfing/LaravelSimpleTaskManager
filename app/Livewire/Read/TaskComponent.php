@@ -16,10 +16,12 @@ class TaskComponent extends Component
     public $updatedAt;
 
 
-    private function getTask(int $taskId): void
+    private function getTask(int $taskId)
     {
         $task = Task::find($taskId);
-
+        if (!$task) {
+            return redirect('/');
+        }
         $this->name = $task->name;
         $this->description = $task->description;
         $this->body = $task->body;

@@ -17,7 +17,9 @@ class TableComponent extends Component
     private function getTable($tableId)
     {
         $table = Table::find($tableId);
-
+        if (!$table) {
+            return redirect('/');
+        }
         $this->name = $table->name;
         $this->owner = User::find($table->owner_id)->name;
         $this->users = $table->users->pluck('name');
