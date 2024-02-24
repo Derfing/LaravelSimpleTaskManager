@@ -18,7 +18,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::view('/', 'home')->middleware('guest')->name('home');
+Route::view('/', 'home')->name('home');
 
 Route::group(['prefix' => 'test'], function () {
     Route::get('get', [TestController::class, 'get']);

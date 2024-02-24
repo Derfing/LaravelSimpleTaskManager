@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-2 my-auto">
                     @auth
-                        <a class="nav-link text-white" href="{{ route('profile') }}">
+                        <a class="nav-link text-white" href="/user/{{ auth()->id() }}">
                             <h4>Профиль</h4>
                         </a>
                     @endauth
