@@ -43,5 +43,10 @@ class Task extends Model
         return $this->belongsTo(Table::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     protected $fillable = ['name', 'description', 'body', 'completed', 'deadline'];
 }

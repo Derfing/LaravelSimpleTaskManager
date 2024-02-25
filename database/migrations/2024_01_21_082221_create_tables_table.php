@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
             $table->string('name', 64);
-            $table->unsignedBigInteger('owner_id');
-            $table->foreign('owner_id')->references('id')->on('users');
+            $table->foreignId('owner_id')->constrained(
+                table: 'users'
+            );
             $table->timestamps();
+            $table->string('description', 256)->nullable();
         });
     }
 

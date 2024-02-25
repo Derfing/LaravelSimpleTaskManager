@@ -39,4 +39,6 @@ class Table extends Model
     {
         return $this->hasMany(Task::class);
     }
+
+    protected $fillable = ['name', 'description', 'owner_id'];
 }

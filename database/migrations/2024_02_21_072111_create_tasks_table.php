@@ -19,7 +19,13 @@ return new class extends Migration
             $table->string('description', 256);
             $table->text('body');
             $table->boolean('completed')->default(false);
-            $table->dateTime('deadline');
+            $table->foreignId('taken_by')->nullable()->constrained(
+                table: 'users',
+                indexName: 'takenBy'
+            );
+            $table->enum('difficulty', ['easy', 'medium', 'hard'])->nullable();
+            $table->string('tag', 16)->nullable();
+            $table->dateTime('deadline')->nullable();
             $table->timestamps();
         });
     }
