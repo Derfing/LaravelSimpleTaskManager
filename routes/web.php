@@ -21,26 +21,6 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 
 Route::view('/', 'home')->name('home');
 
-Route::group(['prefix' => 'test'], function () {
-    Route::get('get', [TestController::class, 'get']);
-    Route::post('post', [TestController::class, 'post']);
-});
-
-Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
-    Route::get('/create', [UserController::class, 'createUser']);
-    Route::get('/{id}', [UserController::class, 'getUser']);
-});
-
-Route::group(['prefix' => 'task', 'middleware' => 'auth'], function () {
-    Route::get('/create', [TaskController::class, 'createTask']);
-    Route::get('/{id}', [TaskController::class, 'getTask']);
-});
-
-Route::group(['prefix' => 'table', 'middleware' => 'auth'], function () {
-    Route::get('/create', [TableController::class, 'createTable']);
-    Route::get('/{id}', [TableController::class, 'getTable']);
-});
-
 Route::middleware('guest')->group(function () {
     Route::view('register', 'auth.register')->name('register');
 
