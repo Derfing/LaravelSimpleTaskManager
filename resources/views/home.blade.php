@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-8 mx-auto text-center">
                 <h2 class="mb-4">Что такое TaskManager?</h2>

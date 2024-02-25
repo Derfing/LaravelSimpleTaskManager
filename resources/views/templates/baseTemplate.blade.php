@@ -19,46 +19,47 @@
 </head>
 
 <body>
-    <nav class="navigation-bar p-3">
+    <nav class="navigation-bar p-3 pb-0">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3">
-                    <a class="nav-link text-white" href="{{ route('home') }}">
+                    <a class="nav-link text-white" wire:navigate href="{{ route('home') }}">
                         <h1>TaskManager</h1>
                     </a>
                 </div>
                 <div class="col-3 my-auto">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" wire:navigate href="#">
                         <h4>Главная</h4>
                     </a>
                 </div>
                 <div class="col-2 my-auto">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" wire:navigate href="#">
                         <h4>Задачи</h4>
                     </a>
                 </div>
                 <div class="col-2 my-auto">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" wire:navigate href="#">
                         <h4>Столы</h4>
                     </a>
                 </div>
                 <div class="col-2 my-auto">
                     @auth
-                        <a class="nav-link text-white" href="/user/{{ auth()->id() }}">
+                        <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}">
                             <h4>Профиль</h4>
                         </a>
                     @endauth
                     @guest
-                        <a class="nav-link text-white" href="{{ route('login') }}">
-                            <h4>Войти</h4>
+                        <a class="nav-link text-white" wire:navigate href="{{ route('register') }}">
+                            <h4>Зарегистрироваться</h4>
                         </a>
                     @endguest
                 </div>
             </div>
         </div>
     </nav>
+    <hr>
     @yield('body')
-    <footer class="footer text-white py-4">
+    <footer class="footer text-white pb-4">
         <hr>
         <div class="container">
             <div class="row">
@@ -74,10 +75,10 @@
                                 class="text-white">GitHub проекта</a>
                         </li>
                         <li class="list-inline-item mr-3">
-                            <a href="#" class="text-white">Политика конфиденциальности</a>
+                            <a href="#" wire:navigate class="text-white">Политика конфиденциальности</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="text-white">Условия использования</a>
+                            <a href="#" wire:navigate class="text-white">Условия использования</a>
                         </li>
                     </ul>
                 </div>

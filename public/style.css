@@ -2,6 +2,10 @@ body {
     background-color: #222222;
     color: white;
     text-align: center;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 #upper-card {
@@ -24,4 +28,9 @@ body {
     border: 10px solid none;
     border-radius: 10px;
     box-shadow: 10px 5px 5px black;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
 }
