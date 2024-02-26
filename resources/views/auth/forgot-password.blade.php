@@ -3,5 +3,5 @@
 @section('title', 'Восстановление пароля')
 
 @section('body')
-    <livewire:auth.forgot-password-component>
-    @endsection
+    <livewire:auth.forgot-password-component />
+@endsection

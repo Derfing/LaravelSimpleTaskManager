@@ -1,11 +1,7 @@
 <?php
 
-use Livewire\Volt\Volt;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\TableController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
 /*
@@ -32,6 +28,36 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/user/{id}/profile', function ($id) {
+        return view('user.profile', ['userId' => $id]);
+    });
+
+    Route::get('/user/{id}/tables', function ($id) {
+        if (!Gate::allows('can-check-tables', ['userId' => $id])) {
+            return redirect('/');
+        }
+        return view('user.tables', ['userId' => $id]);
+    });
+
+    Route::get('table/{id}', function ($id) {
+        if (!Gate::allows('can-check-table', ['tableId' => $id])) {
+            return redirect('/');
+        }
+        return view('table.table', ['tableId' => $id]);
+    });
+
+    Route::get('table/{id}/tasks', function ($id) {
+        if (!Gate::allows('can-check-table', ['tableId' => $id])) {
+            return redirect('/');
+        }
+        return view('table.tasks', ['tableId' => $id]);
+    });
+
+    Route::get('table/{tableId}/task/{taskId}', function ($tableId, $taskId) {
+        return view('table.task', ['tableId' => $tableId, 'taskId' => $taskId]);
+    });
+
     Route::view('verify-email', 'auth.verify-email')->name('verification.notice');
 
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)

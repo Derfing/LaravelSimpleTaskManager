@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <nav class="navigation-bar p-3 pb-0">
+    <nav class="navigation-bar p-3 pb-0 text-center">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3">
@@ -33,18 +33,18 @@
                     </a>
                 </div>
                 <div class="col-2 my-auto">
-                    <a class="nav-link text-white" wire:navigate href="#">
+                    <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}/tasks">
                         <h4>Задачи</h4>
                     </a>
                 </div>
                 <div class="col-2 my-auto">
-                    <a class="nav-link text-white" wire:navigate href="#">
+                    <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}/tables">
                         <h4>Столы</h4>
                     </a>
                 </div>
                 <div class="col-2 my-auto">
                     @auth
-                        <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}">
+                        <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}/profile">
                             <h4>Профиль</h4>
                         </a>
                     @endauth
@@ -59,7 +59,7 @@
     </nav>
     <hr>
     @yield('body')
-    <footer class="footer text-white pb-4">
+    <footer class="footer text-white pb-4 text-center">
         <hr>
         <div class="container">
             <div class="row">
