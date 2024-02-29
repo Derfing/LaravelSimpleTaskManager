@@ -1,33 +1,32 @@
-<div class="container-fluid">
-    <form wire:submit='login'>
-        <div class="row">
-            <div class="offset-2 col-8">
-                <label for="email" class="form-label">Адрес электронной почты</label>
-                <input type="email" wire:model='form.email' class="form-control" id="email"
-                    placeholder="name@example.com">
-            </div>
-            <div class="offset-2 col-8">
-                <label for="password" class="form-label">Пароль</label>
-                <input type="password" wire:model='form.password' class="form-control" id="password"
-                    placeholder="********">
-            </div>
-            <div class="block mt-4">
-                <label for="remember" class="inline-flex items-center">
-                    <input wire:model="form.remember" id="remember" type="checkbox"
-                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        href="{{ route('password.request') }}" wire:navigate>
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-                <button type="submit">Войти</button>
-            </div>
+<section class="section-login">
+    <div class="form-box">
+        <div class="form-value">
+            <form wire:submit='login'>
+                <h2 class="form-login">Вход</h2>
+                <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="text" wire:model='form.email' id="email" required>
+                    <label for="email" >Адрес электронной почты</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" wire:model='form.password' id="password" required>
+                    <label for="password" >Пароль</label>
+                </div>
+                <div class="forget">
+                    <label for="remember">
+                        <input wire:model="form.remember" id="remember" type="checkbox"
+                        name="remember"> Запомнить меня
+                    </label>
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" wire:navigate>Забыли пароль?</a>
+                    @endif
+                </div>
+                <button class="button-login" type="submit">Войти</button>
+                <div class="register">
+                    <p>У тебя нету аккаунта? <a href="/register" wire:navigate>Регистрация</a></p>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
+    </div>
+</section>
