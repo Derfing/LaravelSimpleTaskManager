@@ -1,4 +1,4 @@
-@extends('templates.baseTemplate')
+@extends('templates.emptyTemplate')
 
 @section('title', 'Регистрация')
 

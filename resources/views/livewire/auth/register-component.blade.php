@@ -1,35 +1,35 @@
-<div>
-    <form wire:submit="register">
-        <!-- Name -->
-        <div>
-            <label for="name">Имя пользователя</label>
-            <input type="text" wire:model='name' id="name">
-        </div>
+<section class="section-log-reg">
+    <div class="form-box-reg">
+        <form wire:submit="register">
+            <h2 class="form-log-reg">Регистрация</h2>
+            <!-- Name -->
+            <div class="inputbox">
+                <input type="text" wire:model='name' id="name" required>
+                <label for="name">Имя пользователя</label>
+            </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <label for="email">Адрес электронной почты</label>
-            <input type="email" wire:model='email' id="email">
-        </div>
+            <!-- Email Address -->
+            <div class="inputbox">
+                <input type="text" wire:model='email' id="email" required>
+                <label for="email">Адрес электронной почты</label>
+            </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <label for="password">Пароль</label>
-            <input type="password" wire:model='password' id="password">
-        </div>
+            <!-- Password -->
+            <div class="inputbox">
+                <input type="password" wire:model='password' id="password" required>
+                <label for="password">Пароль</label>
+            </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <label for="password_confirmation">Повторите пароль</label>
-            <input type="password" wire:model='password_confirmation' id="password_confirmation">
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                href="{{ route('login') }}" wire:navigate>
-                {{ __('Already registered?') }}
-            </a>
-            <button type="submit">Зарегестрироваться</button>
-        </div>
-    </form>
-</div>
+            <!-- Confirm Password -->
+            <div class="inputbox">
+                <input type="password" wire:model='password_confirmation' id="password_confirmation" required>
+                <label for="password_confirmation">Повторите пароль</label>
+            </div>
+            <button class="button-log-reg" type="submit">Зарегестрироваться</button>
+            <div class="register">
+                <a href="{{ route('login') }}" wire:navigate>{{ __('Already registered?') }}</a>
+            </div>
+        </form>
+    </div>
+    
+</section>
