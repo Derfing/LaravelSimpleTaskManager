@@ -19,45 +19,21 @@
 </head>
 
 <body>
-    <nav class="navigation-bar p-3 pb-0 text-center">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-3">
-                    <a class="nav-link text-white" wire:navigate href="{{ route('home') }}">
-                        <h1>TaskManager</h1>
-                    </a>
-                </div>
-                <div class="col-3 my-auto">
-                    <a class="nav-link text-white" wire:navigate href="#">
-                        <h4>Главная</h4>
-                    </a>
-                </div>
-                <div class="col-2 my-auto">
-                    <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}/tasks">
-                        <h4>Задачи</h4>
-                    </a>
-                </div>
-                <div class="col-2 my-auto">
-                    <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}/tables">
-                        <h4>Столы</h4>
-                    </a>
-                </div>
-                <div class="col-2 my-auto">
-                    @auth
-                        <a class="nav-link text-white" wire:navigate href="/user/{{ auth()->id() }}/profile">
-                            <h4>Профиль</h4>
-                        </a>
-                    @endauth
-                    @guest
-                        <a class="nav-link text-white" wire:navigate href="{{ route('register') }}">
-                            <h4>Зарегистрироваться</h4>
-                        </a>
-                    @endguest
-                </div>
-            </div>
-        </div>
-    </nav>
-    <hr>
+    <header class="header">
+        <a class="header_logo" wire:navigate href="{{ route('home') }}">TaskManager</a>
+        <nav>
+            <a class="header_navbar" wire:navigate href="#">Главная</a>
+            <a class="header_navbar" wire:navigate href="/user/{{ auth()->id() }}/tasks">Задачи</a>
+            <a class="header_navbar" wire:navigate href="/user/{{ auth()->id() }}/tables">Столы</a>
+            @auth
+            <a class="login_reg_btn" wire:navigate href="/user/{{ auth()->id() }}/profile">Профиль</a>
+            @endauth
+            @guest
+            <a class="login_reg_btn" wire:navigate href="{{ route('login') }}">Войти</a>
+            <a class="login_reg_btn" wire:navigate href="{{ route('register') }}">Регистрация</a>
+            @endguest
+        </nav>
+    </header>
     @yield('body')
     <footer class="footer text-white pb-4 text-center">
         <hr>

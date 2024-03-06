@@ -27,7 +27,7 @@
             </div>
             <button class="button-log-reg" type="submit">Зарегестрироваться</button>
             <div class="register">
-                <a href="{{ route('login') }}" wire:navigate>{{ __('Already registered?') }}</a>
+                <a href="{{ route('login') }}" wire:navigate>Уже зарегестрированы?</a>
             </div>
         </form>
     </div>
